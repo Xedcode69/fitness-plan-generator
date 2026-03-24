@@ -15,11 +15,10 @@ app = FastAPI()
 
 @app.get("/getplan")
 def get_plan(
-    qry: str,
+    goal: str,
     name: str,
     age: int,
     gender: str,
-    goal: str,
     equipment: str,
     weight: float,
     illnesses: str,
@@ -30,7 +29,7 @@ def get_plan(
     embed = embedding()
     collection = vectordb(chunks, embed)
 
-    retrieved_data = retrieve(qry, embed, collection)
+    retrieved_data = retrieve(goal, embed, collection)
 
     prompt = generate_prompt(
         retrieved_data, name, age, gender, goal, equipment, weight, illnesses
