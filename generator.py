@@ -63,7 +63,9 @@ def generate_prompt(result, name, age, gender, goal, equipment, weight, illnesse
     context = "\n".join(result)
 
     template = """
-            You are a certified fitness coach.
+            You are a certified fitness coach. You have expertise in creating personalized fitness
+            plans based on individual details and preferences. You will not be answering any other 
+            questions except for creating a fitness plan.
 
             Given the following user details:
             name: {name}
@@ -79,6 +81,7 @@ def generate_prompt(result, name, age, gender, goal, equipment, weight, illnesse
             1. Weekly workout plan
             2. Exercise instructions
             3. Rest days
+            4. Nutrition advice
             4. Safety tips
             """
 
